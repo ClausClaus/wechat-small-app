@@ -1,15 +1,13 @@
 <import src="../../template/post-item/post-item.wxml" />
 <view>
-    <swiper class="swiper-wrapper" indicator-dots="true" autoplay="true" interval="5000">
-        <swiper-item>
-            <image src="../../images/wx.png"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="../../images/vr.png"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="../../images/iqiyi.png"></image>
-        </swiper-item>
+    <swiper class=swiper-wrapper" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+        <block wx:for="{{images}}">
+            <swiper-item catchtap="onPostDetail" data-postId="{{item.postId}}" wx:key="{{index}}">
+                <view class="slide">
+                    <image src="{{ item.imgItem }}" class="slide-image"/>
+                </view>
+            </swiper-item>
+        </block>
     </swiper>
     <block wx:for="{{post_contents}}">
         <!-- template -->

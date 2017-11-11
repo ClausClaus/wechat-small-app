@@ -1,10 +1,11 @@
 var postData = require('../../data/posts-data.js');
+var { images } = require('../../data/images.js');
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-
+        images: images
     },
     /**
      * [onPostDetail 跳转到文章详情页]

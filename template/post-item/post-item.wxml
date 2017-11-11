@@ -8,9 +8,9 @@
         <image class="post-img" src="{{imgSrc}}"></image>
         <text class="post-content">{{content}}</text>
         <view class="post-comment">
-            <image class="comment-img" src="../../images/icon/chat.png"></image>
+            <image class="comment-img" src="/images/icon/chat.png"></image>
             <text class="comment-num">{{reading}}</text>
-            <image class="comment-img" src="../../images/icon/view.png"></image>
+            <image class="comment-img" src="/images/icon/view.png"></image>
             <text class="comment-num">{{collection}}</text>
         </view>
     </view>
