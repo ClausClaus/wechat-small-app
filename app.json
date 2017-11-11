@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/posts/posts",
+        "pages/post-detail/post-detail",
+        "pages/weclome/weclome"
+    ],
+    "window":
+    {
+        "backgroundTextStyle": "light",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#405f80"
+    }
+}

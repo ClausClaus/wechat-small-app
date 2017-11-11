@@ -1,0 +1,17 @@
+<template name="postItem">
+    <view class="post-container" catch:tap="onPostDetail" data-postId="{{postId}}" wx:key="{{index}}">
+        <view class="post-author-date">
+            <image src="{{avatar}}" class="post-author-avatar"></image>
+            <text class="post-date">{{date}}</text>
+        </view>
+        <text class="post-title">{{title}}</text>
+        <image class="post-img" src="{{imgSrc}}"></image>
+        <text class="post-content">{{content}}</text>
+        <view class="post-comment">
+            <image class="comment-img" src="../../images/icon/chat.png"></image>
+            <text class="comment-num">{{reading}}</text>
+            <image class="comment-img" src="../../images/icon/view.png"></image>
+            <text class="comment-num">{{collection}}</text>
+        </view>
+    </view>
+</template>
