@@ -1,14 +1,40 @@
 /*
  * @Author: pc
  * @Date:   2017-11-10 10:58:19
- * @Last Modified by:   pc
- * @Last Modified time: 2017-11-11 11:14:07
+ * @Last Modified by:   ClausClaus
+ * @Last Modified time: 2017-11-11 16:18:51
  */
 let postData = require('../../data/posts-data.js');
 let { saveCollect, loadCollect } = require('../../utils/cache.js');
+let { globalData } = getApp();
 Page({
     data: {
+        isplayingMusic: false
+    },
+    onLoad(options) {
+        // wx.clearStorageSync();
+        let postId = options.postId;
+        this.setData({ 'currentPostId': postId });
+        let postItem = this.findItem(postId);
+        this.setData({ ...postItem });
+        this.setData({ collected: loadCollect(postId) });
+        if (globalData.g_isplayingMusic && globalData.g_currentMusicPostId === this.data.currentPostId) {
+            this.setData({ isplayingMusic: true })
+        }
 
+        this.setMusicMonitor();
+    },
+    setMusicMonitor() {
+        wx.onBackgroundAudioPlay(() => {
+            this.setData({ isplayingMusic: true })
+            globalData.g_isplayingMusic = true
+            globalData.g_currentMusicPostId = this.data.currentPostId
+        })
+        wx.onBackgroundAudioPause(() => {
+            this.setData({ isplayingMusic: false })
+            globalData.g_isplayingMusic = false
+            globalData.g_currentMusicPostId = null;
+        })
     },
     findItem(id) {
         let item = postData.postList.find((item) => {
@@ -23,12 +49,27 @@ Page({
     },
     showToast() {
         let collected = saveCollect(this.data.currentPostId);
-        this.setData({ 'collected': collected });
+        this.setData({ collected: collected });
         wx.showToast({
             'title': this.data.collected ? '收藏成功' : '取消成功',
             'duration': 1000,
             'icon': 'success'
         })
+    },
+    onMusicTap(e) {
+        let isplayingMusic = this.data.isplayingMusic;
+        let musicData = this.data.music;
+        if (isplayingMusic) {
+            wx.pauseBackgroundAudio()
+            this.setData({ isplayingMusic: false })
+        } else {
+            wx.playBackgroundAudio({
+                dataUrl: musicData.url,
+                title: musicData.title,
+                coverImgUrl: musicData.coverImg
+            })
+            this.setData({ isplayingMusic: true })
+        }
     },
     onShareTap(e) {
         let itemList = [
@@ -56,12 +97,5 @@ Page({
             }
         })
     },
-    onLoad(options) {
-        // wx.clearStorageSync();
-        let postId = options.postId;
-        this.setData({ 'currentPostId': postId });
-        let postItem = this.findItem(postId);
-        this.setData({ ...postItem });
-        this.setData({ 'collected': loadCollect(postId) });
-    }
+
 })
