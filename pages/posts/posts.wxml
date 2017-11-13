@@ -1,10 +1,10 @@
 <import src="../../template/post-item/post-item.wxml" />
 <view>
-    <swiper class=swiper-wrapper" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+    <swiper class="swiper-wrapper" indicator-dots="true" autoplay="true" interval="5000" duration="500" bindtap="onPostDetail">
         <block wx:for="{{images}}">
-            <swiper-item catchtap="onPostDetail" data-postId="{{item.postId}}" wx:key="{{index}}">
+            <swiper-item wx:key="{{index}}">
                 <view class="slide">
-                    <image src="{{ item.imgItem }}" class="slide-image"/>
+                    <image src="{{ item.imgItem }}" data-postId="{{item.postId}}" class="slide-image"/>
                 </view>
             </swiper-item>
         </block>

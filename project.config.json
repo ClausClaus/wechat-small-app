@@ -22,7 +22,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "长按图片识别小程序码",
+					"pathName": "pages/post-detail/post-detail",
+					"query": "postId=2",
+					"scene": "1048"
+				}
+			]
 		}
 	}
 }

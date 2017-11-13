@@ -2,7 +2,7 @@
  * @Author: pc
  * @Date:   2017-11-10 10:58:19
  * @Last Modified by:   ClausClaus
- * @Last Modified time: 2017-11-11 16:18:51
+ * @Last Modified time: 2017-11-13 13:36:16
  */
 let postData = require('../../data/posts-data.js');
 let { saveCollect, loadCollect } = require('../../utils/cache.js');
@@ -13,7 +13,7 @@ Page({
     },
     onLoad(options) {
         // wx.clearStorageSync();
-        let postId = options.postId;
+        let postId = decodeURIComponent(options.postId);
         this.setData({ 'currentPostId': postId });
         let postItem = this.findItem(postId);
         this.setData({ ...postItem });
@@ -25,11 +25,13 @@ Page({
         this.setMusicMonitor();
     },
     setMusicMonitor() {
+        // 开启音乐播放监听
         wx.onBackgroundAudioPlay(() => {
             this.setData({ isplayingMusic: true })
             globalData.g_isplayingMusic = true
             globalData.g_currentMusicPostId = this.data.currentPostId
         })
+        // 停止音乐播放监听
         wx.onBackgroundAudioPause(() => {
             this.setData({ isplayingMusic: false })
             globalData.g_isplayingMusic = false
