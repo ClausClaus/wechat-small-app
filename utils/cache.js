@@ -1,11 +1,11 @@
 /*
  * @Author: pc
  * @Date:   2017-11-10 17:27:05
- * @Last Modified by:   pc
- * @Last Modified time: 2017-11-11 09:24:03
+ * @Last Modified by:   ClausClaus
+ * @Last Modified time: 2017-11-13 16:05:04
  */
 
-
+/* -----------------------本地缓存文件----------------------- */
 const COLLECT_KEY = '__collect__';
 
 export function saveCollect(postId) {

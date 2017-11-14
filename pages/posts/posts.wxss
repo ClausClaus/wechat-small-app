@@ -2,6 +2,7 @@
 .swiper-wrapper {
     width: 100%;
     height: 450rpx;
+    background-color: #fff;
 }
 
 .swiper-wrapper .slide {

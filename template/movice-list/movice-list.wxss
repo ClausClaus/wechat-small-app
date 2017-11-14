@@ -1,0 +1,36 @@
+@import "../movice/movice.wxss";
+.movice-list-container {
+    margin-bottom: 30rpx;
+    background-color: #fff;
+}
+.movice-list-container:last-child{
+	margin-bottom: 0;
+}
+.movice-list-container .movice-head {
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10rpx;
+}
+
+
+.movice-list-container .movice-head .text {
+    color: #666;
+}
+
+.movice-list-container .movice-head .movice-more .more {
+    color: #6180bf;
+    margin-right: 14rpx;
+}
+
+.movice-list-container .movice-head .icon-arrow-right {
+    width: 10rpx;
+    height: 18rpx;
+}
+
+.movice-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

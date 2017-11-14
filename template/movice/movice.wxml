@@ -1,0 +1,8 @@
+<import src="../star/star.wxml" />
+<template name="moviceTemplate">
+    <view class="movice-container">
+        <image class="movice-img" src="/images/yourname.webp"></image>
+        <text class="movice-title">你的名字</text>
+        <template is="starsTemplate"></template>
+    </view>
+</template>

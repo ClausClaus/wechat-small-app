@@ -10,7 +10,9 @@
     border-top: 1px solid #ededed;
     padding-bottom: 5px;
 }
-
+.post-container:last-child{
+    margin-bottom: 0;
+}
 .post-container .post-author-date {
     margin: 10rpx 0 20rpx 10rpx;
 }

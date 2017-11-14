@@ -16,6 +16,8 @@
     {
         "borderStyle": "white",
         "position": "bottom",
+        "selectedColor": "#1F4BA5",
+        "color": "#707070",
         "list": [
         {
             "pagePath": "pages/posts/posts",

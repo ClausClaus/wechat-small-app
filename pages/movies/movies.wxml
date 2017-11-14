@@ -1,0 +1,6 @@
+<import src="../../template/movice-list/movice-list.wxml" />
+<view>
+	<template is="moviceListTemplate"></template>
+	<template is="moviceListTemplate"></template>
+	<template is="moviceListTemplate"></template>
+</view>

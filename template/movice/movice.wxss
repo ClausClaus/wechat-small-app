@@ -1,0 +1,17 @@
+@import "../star/star.wxss";
+.movice-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.movice-container .movice-img {
+    width: 200rpx;
+    height: 270rpx;
+    flex: 1;
+    padding-bottom: 20rpx;
+}
+
+.movice-container .movice-title {
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+}

@@ -1,5 +1,5 @@
 <import src="../../template/post-item/post-item.wxml" />
-<view>
+<view class="swiper-container">
     <swiper class="swiper-wrapper" indicator-dots="true" autoplay="true" interval="5000" duration="500" bindtap="onPostDetail">
         <block wx:for="{{images}}">
             <swiper-item wx:key="{{index}}">
