@@ -1,5 +1,5 @@
 <import src="../../template/movice-list/movice-list.wxml" />
-<view>
+<view class="movice-box">
 	<template is="moviceListTemplate"></template>
 	<template is="moviceListTemplate"></template>
 	<template is="moviceListTemplate"></template>

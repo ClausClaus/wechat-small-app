@@ -3,9 +3,11 @@
     margin-bottom: 30rpx;
     background-color: #fff;
 }
-.movice-list-container:last-child{
-	margin-bottom: 0;
+
+.movice-list-container:last-child {
+    margin-bottom: 0;
 }
+
 .movice-list-container .movice-head {
     height: 90rpx;
     line-height: 90rpx;
