@@ -1,0 +1,4 @@
+<import src="../../template/movice-grid/movice-grid.wxml" />
+<view class="more-movice-container">
+	<template is="moviceGrid" data="{{movices}}"></template>
+</view>

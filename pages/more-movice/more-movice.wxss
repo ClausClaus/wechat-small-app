@@ -1,0 +1,5 @@
+/* pages/more-movice/more-movice.wxss */
+@import "../../template/movice-grid/movice-grid.wxss";
+.more-movice-container{
+	margin-top: 30rpx;
+}

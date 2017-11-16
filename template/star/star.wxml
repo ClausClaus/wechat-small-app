@@ -1,12 +1,12 @@
 <template name="starsTemplate">
     <view class="stars-contaienr">
         <viee class="stars">
-            <image src="/images/icon/star.png" />
-            <image src="/images/icon/star.png" />
-            <image src="/images/icon/star.png" />
-            <image src="/images/icon/star.png" />
-            <image src="/images/icon/star.png" />
+            <block wx:for="{{stars}}" wx:for-item="i">
+                <image wx:if="{{i === 'on'}}" src="/images/icon/star.png"></image>
+                <image wx:elif="{{i === 'half'}}" src="/images/icon/half-star.png"></image>
+                <image wx:elif="{{i === 'off'}}" src="/images/icon/none-star.png"></image>
+            </block>
         </viee>
-            <text class="star-score">8.9</text>
+        <text class="star-score">{{score}}</text>
     </view>
 </template>

@@ -1,9 +1,10 @@
 {
     "pages": [
         "pages/posts/posts",
+        "pages/movices/movices",
         "pages/post-detail/post-detail",
-        "pages/weclome/weclome",
-        "pages/movies/movies"
+        "pages/more-movice/more-movice",
+        "pages/weclome/weclome"
     ],
     "window":
     {
@@ -19,17 +20,19 @@
         "selectedColor": "#1F4BA5",
         "color": "#707070",
         "list": [
-        {
-            "pagePath": "pages/posts/posts",
-            "text": "文章",
-            "iconPath": "images/tab/yuedu.png",
-            "selectedIconPath": "images/tab/yuedu_hl.png"
-        },
-        {
-            "pagePath": "pages/movies/movies",
-            "text": "电影",
-            "iconPath": "images/tab/dianying.png",
-            "selectedIconPath": "images/tab/dianying_hl.png"
-        }]
+
+            {
+                "pagePath": "pages/posts/posts",
+                "text": "文章",
+                "iconPath": "images/tab/yuedu.png",
+                "selectedIconPath": "images/tab/yuedu_hl.png"
+            },
+            {
+                "pagePath": "pages/movices/movices",
+                "text": "电影",
+                "iconPath": "images/tab/dianying.png",
+                "selectedIconPath": "images/tab/dianying_hl.png"
+            }
+        ]
     }
 }

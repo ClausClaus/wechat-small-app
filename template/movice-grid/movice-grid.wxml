@@ -1,0 +1,10 @@
+<import src="../movice/movice.wxml" />
+<template name="moviceGrid">
+    <scroll-view class="scroll-view-container" scroll-y="true" scroll-x="false" bindscrolltolower="onScrollLower">
+        <view class="movice-list">
+            <block wx:for="{{movices}}" wx:for-item="movice">
+                <template is="moviceTemplate" data="{{...movice}}"></template>
+            </block>
+        </view>
+    </scroll-view>
+</template>

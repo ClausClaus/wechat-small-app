@@ -1,19 +1,20 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
-}
+   let { convertToStarsArray } = require("./star.js");
+   export function normalLizeMovice(moviceData) {
+       let ret = [];
+       for (var index in moviceData.subjects) {
+           let subject = moviceData.subjects[index];
+           let title = subject.title;
+           if (title.length >= 6) {
+               title = title.substring(0, 6) + '...';
+           }
+           let temp = {
+               stars: convertToStarsArray(subject.rating.stars),
+               title: title,
+               average: subject.rating.average,
+               coverageUrl: subject.images.large,
+               moviceId: subject.id
+           }
+           ret.push(temp);
+       }
+       return ret;
+   }

@@ -1,0 +1,14 @@
+@import "../movice/movice.wxss";
+.scroll-view-container {
+    height: 1300rpx;
+}
+
+.movice-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+/*.movice-list:*/

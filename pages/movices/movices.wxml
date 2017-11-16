@@ -1,0 +1,6 @@
+<import src="../../template/movice-list/movice-list.wxml" />
+<view class="movice-box">
+	<template is="moviceListTemplate" data="{{...Theaters}}"></template>
+	<template is="moviceListTemplate" data="{{...Top250}}"></template>
+	<template is="moviceListTemplate" data="{{...ComingSoon}}"></template>
+</view>

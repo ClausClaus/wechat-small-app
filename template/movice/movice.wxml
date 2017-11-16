@@ -1,8 +1,8 @@
 <import src="../star/star.wxml" />
 <template name="moviceTemplate">
     <view class="movice-container">
-        <image class="movice-img" src="/images/yourname.webp"></image>
-        <text class="movice-title">你的名字</text>
-        <template is="starsTemplate"></template>
+        <image class="movice-img" src="{{coverageUrl}}"></image>
+        <text class="movice-title">{{title}}</text>
+        <template is="starsTemplate" data="{{stars:stars,score:average}}"></template>
     </view>
 </template>

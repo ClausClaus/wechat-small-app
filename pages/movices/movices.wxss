@@ -1,0 +1,5 @@
+@import "../../template/movice-list/movice-list.wxss";
+.movice-box{
+	display: flex;
+	flex-direction: column;
+}
