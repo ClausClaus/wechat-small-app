@@ -1,7 +1,7 @@
 <import src="../star/star.wxml" />
 <template name="moviceTemplate">
-    <view class="movice-container">
-        <image class="movice-img" src="{{coverageUrl}}"></image>
+    <view class="movice-container" catchtap="onMoviceTap" data-moviceid="{{moviceId}}">
+        <image class="movice-img" src="{{coverageUrl}}" lazy-load="true"></image>
         <text class="movice-title">{{title}}</text>
         <template is="starsTemplate" data="{{stars:stars,score:average}}"></template>
     </view>

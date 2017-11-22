@@ -8,6 +8,7 @@ const COUNT = 3;
 const TOP250 = `/v2/movie/top250`;
 const THEATERS = `/v2/movie/in_theaters`;
 const COMINGSOON = `/v2/movie/coming_soon`;
+const SEARCHAPI = `/v2/movie/search`;
 Page({
     /**
      * 页面的初始数据
@@ -16,7 +17,11 @@ Page({
     data: {
         Theaters: {},
         Top250: {},
-        ComingSoon: {}
+        ComingSoon: {},
+        SearchList: {},
+        Val: '',
+        containerShow: true,
+        searchPanelShow: false
     },
 
     /**
@@ -24,19 +29,19 @@ Page({
      */
     onLoad: function(options) {
         // 正在热映
-        HTTP(THEATERS,START,COUNT).then(res => {
+        HTTP(THEATERS, { start: START, count: COUNT }).then(res => {
             if (res.statusCode === ERROK) {
                 this._normalLizeMovice(res.data, MoviceData.Theaters.title, MoviceData.Theaters.header);
             }
         })
         // top250
-        HTTP(TOP250,START,COUNT).then(res => {
+        HTTP(TOP250, { start: START, count: COUNT }).then(res => {
             if (res.statusCode === ERROK) {
                 this._normalLizeMovice(res.data, MoviceData.Top250.title, MoviceData.Top250.header);
             }
         })
         // 即将上映
-        HTTP(COMINGSOON,START,COUNT).then(res => {
+        HTTP(COMINGSOON, { start: START, count: COUNT }).then(res => {
             if (res.statusCode === ERROK) {
                 this._normalLizeMovice(res.data, MoviceData.ComingSoon.title, MoviceData.ComingSoon.header);
             }
@@ -59,6 +64,26 @@ Page({
         let category = e.currentTarget.dataset.category;
         wx.navigateTo({
             url: `../more-movice/more-movice?category=${category}`
+        })
+    },
+    onBindFocus(e) {
+        this.setData({ containerShow: false, searchPanelShow: true })
+    },
+    onCancelImgTap(e) {
+        this.setData({ containerShow: true, searchPanelShow: false, SearchList: {}, Val: '' })
+    },
+    onBindChange(e) {
+        let text = e.detail.value;
+        HTTP(SEARCHAPI, { start: START, count: 21, q: text }).then((res) => {
+            if (res.statusCode === ERROK) {
+                this._normalLizeMovice(res.data, MoviceData.SearchList.title, MoviceData.SearchList.header);
+            }
+        })
+    },
+    onMoviceTap(e) {
+        let moviceid = e.target.dataset.moviceid || e.currentTarget.dataset.moviceid;
+        wx.navigateTo({
+            url: `../movice-detail/movice-detail?moviceid=${moviceid}`
         })
     },
     /**

@@ -2,7 +2,7 @@
  * @Author: pc
  * @Date:   2017-11-10 10:58:19
  * @Last Modified by:   ClausClaus
- * @Last Modified time: 2017-11-13 13:36:16
+ * @Last Modified time: 2017-11-22 09:24:41
  */
 let postData = require('../../data/posts-data.js');
 let { saveCollect, loadCollect } = require('../../utils/cache.js');
@@ -28,13 +28,18 @@ Page({
         // 开启音乐播放监听
         wx.onBackgroundAudioPlay(() => {
             this.setData({ isplayingMusic: true })
-            globalData.g_isplayingMusic = true
+            globalData.g_isplayingMusic = true;
             globalData.g_currentMusicPostId = this.data.currentPostId
         })
         // 停止音乐播放监听
         wx.onBackgroundAudioPause(() => {
             this.setData({ isplayingMusic: false })
-            globalData.g_isplayingMusic = false
+            globalData.g_isplayingMusic = false;
+            globalData.g_currentMusicPostId = null;
+        })
+        wx.onBackgroundAudioStop(() => {
+            this.setData({ isplayingMusic: false });
+            globalData.g_isplayingMusic = false;
             globalData.g_currentMusicPostId = null;
         })
     },

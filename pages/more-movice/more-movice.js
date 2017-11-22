@@ -2,7 +2,7 @@
 let { MoviceData } = require("../../common/js/baseMoviceData.js");
 let { HTTP } = require("../../api/baseRequest.js");
 let { ERROK } = require("../../api/config.js");
-let { normalLizeMovice } = require("../../utils/util.js");
+let { normalLizeMovice, debounce } = require("../../utils/util.js");
 const START = 0;
 const COUNT = 21;
 // const QUERY = `?start=${START}&count=${COUNT}`;
@@ -19,7 +19,8 @@ Page({
         categoryTitle: '',
         requestUrl: '',
         hasMore: true,
-        movices: {}
+        isloaded: false,
+        movices: []
     },
 
     /**
@@ -44,22 +45,22 @@ Page({
                 break;
         }
         this.data.requestUrl = requestUrl;
-        this.data.hasMore = true;
-        HTTP(requestUrl, START, COUNT).then(res => {
+        HTTP(requestUrl, { start: START, count: COUNT }).then(res => {
             if (res.statusCode === ERROK) {
                 this._normalLizeMovice(res.data);
                 this.checkMore(res.data);
-                console.log(res.data);
             }
+        })
+    },
+    onMoviceTap(e) {
+        let moviceid = e.target.dataset.moviceid || e.currentTarget.dataset.moviceid;
+        wx.navigateTo({
+            url: `../movice-detail/movice-detail?moviceid=${moviceid}`
         })
     },
     _normalLizeMovice(moviceData) {
         let movices = normalLizeMovice(moviceData);
-        if (!this.data.hasMore) {
-            this.data.movices = this.data.movices.concat(movices);
-        } else {
-            this.data.movices = movices;
-        }
+        this.data.movices = this.data.movices.concat(movices);
         this.setData({ movices: this.data.movices })
     },
     checkMore(movices) {
@@ -71,16 +72,23 @@ Page({
         if (!this.data.hasMore) {
             return;
         }
-        console.log('加载了');
-        this.data.currentNum += COUNT;
-        let nextUrl = this.data.requestUrl;
-        HTTP(nextUrl, this.data.currentNum, COUNT).then(res => {
-            if (res.statusCode === ERROK) {
-                this._normalLizeMovice(res.data);
-                this.checkMore(res.data);
-            }
-        })
-
+        if (this.data.isloaded) {
+            return;
+        } else {
+            console.log('触发了')
+            this.setData({ isloaded: true })
+            this.data.currentNum += COUNT;
+            let nextUrl = this.data.requestUrl;
+            HTTP(nextUrl, { start: this.data.currentNum, count: COUNT }).then(res => {
+                if (res.statusCode === ERROK) {
+                    this._normalLizeMovice(res.data);
+                    this.checkMore(res.data);
+                    this.setData({ isloaded: false })
+                    wx.hideNavigationBarLoading();
+                }
+            })
+            wx.showNavigationBarLoading();
+        }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -111,21 +119,6 @@ Page({
     onUnload: function() {
 
     },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
-
     /**
      * 用户点击右上角分享
      */

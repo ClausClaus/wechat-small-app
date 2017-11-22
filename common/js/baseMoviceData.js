@@ -2,7 +2,7 @@
  * @Author: ClausClaus
  * @Date:   2017-11-16 11:36:19
  * @Last Modified by:   ClausClaus
- * @Last Modified time: 2017-11-16 11:48:37
+ * @Last Modified time: 2017-11-21 15:19:48
  */
 
 export const MoviceData = {
@@ -17,5 +17,9 @@ export const MoviceData = {
     ComingSoon: {
         title: 'ComingSoon',
         header: '即将上映'
+    },
+    SearchList:{
+        title:'SearchList',
+        header:'搜索结果'
     }
 }

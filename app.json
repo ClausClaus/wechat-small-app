@@ -3,6 +3,7 @@
         "pages/posts/posts",
         "pages/movices/movices",
         "pages/post-detail/post-detail",
+        "pages/movice-detail/movice-detail",
         "pages/more-movice/more-movice",
         "pages/weclome/weclome"
     ],

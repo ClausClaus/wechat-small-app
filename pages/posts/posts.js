@@ -13,7 +13,6 @@ Page({
      */
     onPostDetail(e) {
         let postId = e.target.dataset.postid || e.currentTarget.dataset.postid;
-        console.log(postId);
         wx.navigateTo({
             url: `../post-detail/post-detail?postId=${postId}`
         })

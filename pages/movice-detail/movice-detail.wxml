@@ -1,0 +1,55 @@
+<import src="../../template/star/star.wxml" />
+<view class="movice-info-container">
+    <view class="movice-bg-container">
+        <image class="mask" src="{{movieImg}}" mode="aspectFill"></image>
+        <view class="movice-desc-header">
+            <text class="movice-name">{{title}}</text>
+            <text class="city-year">{{country+" · "+year}}</text>
+            <view class="review-container">
+                <text class="like">
+                    <text class="num">{{wishCount}}</text>人喜欢</text>
+                <text class="comment">
+                    <text class="num">{{commentCount}}</text>条评论</text>
+            </view>
+            <image class="movice-img" src="{{movieImg}}" mode="aspectFit"></image>
+        </view>
+    </view>
+    <view class="summary">
+        <view class="original-title">
+            <text>{{originalTitle}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">评分</text>
+            <template is="starsTemplate" data="{{stars:stars, score:score}}" />
+        </view>
+        <view class="flex-row">
+            <text class="mark">导演</text>
+            <text>{{director.name}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">影人</text>
+            <text>{{casts}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">类型</text>
+            <text>{{generes}}</text>
+        </view>
+    </view>
+    <view class="hr"></view>
+    <view class="synopsis">
+        <text class="synopsis-font">剧情简介</text>
+        <text class="summary-content">{{summary}}</text>
+    </view>
+    <view class="hr"></view>
+    <view class="cast">
+        <text class="cast-font"> 影人</text>
+        <scroll-view class="cast-imgs" scroll-x="{{scrollX}}" scroll-y="{{scrollY}}" style="width:100%;">
+            <block wx:for="{{castsInfo}}">
+                <view class="cast-container">
+                    <image class="cast-img" src="{{item.img}}"></image>
+                    <text class="cast-name">{{item.name}}</text>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+</view>

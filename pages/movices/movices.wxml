@@ -1,6 +1,15 @@
 <import src="../../template/movice-list/movice-list.wxml" />
-<view class="movice-box">
-	<template is="moviceListTemplate" data="{{...Theaters}}"></template>
-	<template is="moviceListTemplate" data="{{...Top250}}"></template>
-	<template is="moviceListTemplate" data="{{...ComingSoon}}"></template>
+<import src="../../template/movice-grid/movice-grid.wxml" />
+<view class="search">
+    <icon size="13" class="search-img" type="search" color="#405f80"></icon>
+    <input placeholder="你的名字" value="{{Val}}" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindChange" />
+    <image class="close" src="../../images/icon/xx.png" bindtap="onCancelImgTap" ></image>
+</view>
+<view class="movice-box" wx:if="{{containerShow}}">
+    <template is="moviceListTemplate" data="{{...Theaters}}"></template>
+    <template is="moviceListTemplate" data="{{...Top250}}"></template>
+    <template is="moviceListTemplate" data="{{...ComingSoon}}"></template>
+</view>
+<view class="search-pannel" wx:if="{{searchPanelShow}}">
+    <template is="moviceGrid" data="{{...SearchList}}"></template>
 </view>

@@ -1,0 +1,199 @@
+@import "../../template/star/star.wxss";
+.movice-info-container {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+
+.movice-bg-container {
+    width: 100%;
+    height: 320rpx;
+    position: relative;
+}
+
+ .movice-bg-container .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 320rpx;
+    -webkit-filter: blur(20px);
+    filter: blur(10rpx);
+}
+
+.movice-bg-container .movice-desc-header {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding-left: 42rpx;
+}
+
+.movice-desc-header .movice-name {
+    margin-top: 60rpx;
+    font-size: 19px;
+    letter-spacing: 2;
+    color: #fff;
+}
+
+.movice-desc-header .city-year {
+    display: block;
+    margin-top: 48rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    color: #fff;
+}
+
+.movice-desc-header .city-year .clip-dos {
+    display: inline-block;
+    width: 28rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+}
+
+.movice-desc-header .review-container {
+    color: #656464;
+    margin-top: 58rpx;
+}
+
+.movice-desc-header .review-container .num {
+    color: #bb173f;
+    margin-right: 18rpx;
+}
+
+.movice-desc-header .review-container .comment {
+    margin-left: 40rpx;
+}
+
+.movice-desc-header .movice-img {
+    position: absolute;
+    right: 30rpx;
+    bottom: -80rpx;
+    height: 240rpx;
+    width: 176rpx;
+    z-index: 4;
+}
+
+
+
+
+
+
+/*  ------------summary Start  */
+
+.summary {
+    margin-left: 40rpx;
+    margin-top: 40rpx;
+    color: #777777;
+}
+
+.original-title {
+    color: #1f3463;
+    font-size: 24rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10rpx;
+}
+
+.mark {
+    margin-right: 30rpx;
+    white-space: nowrap;
+    color: #999999;
+}
+
+
+
+
+
+/*  ------------summary End  */
+
+.hr {
+    margin-top: 45rpx;
+    height: 1px;
+    width: 100%;
+    background-color: #d9d9d9;
+}
+
+
+
+/*  synopsis Start  */
+
+.synopsis {
+    margin-left: 40rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50rpx;
+}
+
+.synopsis-font {
+    color: #999;
+}
+
+.summary-content {
+    margin-top: 20rpx;
+    margin-right: 40rpx;
+    line-height: 40rpx;
+    letter-spacing: 1px;
+}
+
+
+
+/*  synopsis End  */
+
+
+/*  cast Start  */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.cast {
+    margin-left: 40rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50rpx;
+}
+
+.cast-font {
+    color: #999;
+    margin-bottom: 40rpx;
+}
+
+.cast-container {
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 50rpx;
+    margin-right: 40rpx;
+    width: 170rpx;
+    text-align: center;
+    white-space: normal;
+}
+
+.cast-imgs {
+    white-space: nowrap;
+    width: 100%;
+    height: 240rpx;
+}
+
+.cast-img {
+    width: 170rpx;
+    height: 210rpx;
+}
+
+.cast-name {
+		height: 30rpx;
+		line-height: 30rpx;
+		margin-bottom:16rpx;
+}
+
+
+
+/*  cast End  */
