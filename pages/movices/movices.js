@@ -82,8 +82,9 @@ Page({
     },
     onMoviceTap(e) {
         let moviceid = e.target.dataset.moviceid || e.currentTarget.dataset.moviceid;
+        let category = e.target.dataset.category || e.currentTarget.dataset.category;
         wx.navigateTo({
-            url: `../movice-detail/movice-detail?moviceid=${moviceid}`
+            url: `../movice-detail/movice-detail?moviceid=${moviceid}&category=${category}`
         })
     },
     /**

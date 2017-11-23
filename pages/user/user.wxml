@@ -1,0 +1,2 @@
+<button type="primary" style="height: 30px;width: 100%;line-height:30px;margin: 10px;" bindtap="onchooseAddres">获取收货地址</button>
+<button type="warn" style="height: 30px;width: 100%;line-height:30px;margin: 10px;" bindtap="ongetUserInfo">获取用户信息</button>

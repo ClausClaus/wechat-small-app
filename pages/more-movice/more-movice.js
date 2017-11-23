@@ -1,4 +1,3 @@
-// pages/more-movice/more-movice.js
 let { MoviceData } = require("../../common/js/baseMoviceData.js");
 let { HTTP } = require("../../api/baseRequest.js");
 let { ERROK } = require("../../api/config.js");
@@ -28,7 +27,7 @@ Page({
      */
     onLoad: function(options) {
         let category = options.category;
-        this.data.categoryTitle = category;
+        this.setData({ categoryTitle: category })
         let requestUrl = '';
         switch (category) {
             case MoviceData.Theaters.header:

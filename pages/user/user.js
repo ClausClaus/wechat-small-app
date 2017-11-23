@@ -1,25 +1,44 @@
-let { ERROK } = require("../../api/config.js");
-let { moviceDetail } = require("../../api/baseRequest.js");
-let { processDoubanData } = require("../../common/js/baseMoviceData.js");
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        titleBar: '',
-        scrollX: true,
-        scrollY: false
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.setData({ titleBar: options.category });
-        moviceDetail(options.moviceid).then(res => {
-            if (res.statusCode === ERROK) {
-                this.setData({ ...processDoubanData(res.data) });
+      console.log('load');
+    },
+    ongetUserInfo(){
+      wx.getUserInfo({
+        success: function(res) {
+          var userInfo = res.userInfo;
+          var nickName = userInfo.nickName;
+          var avatarUrl = userInfo.avatarUrl;
+          var gender = userInfo.gender ;//性别 0：未知、1：男、2：女
+          var province = userInfo.province;
+          var city = userInfo.city;
+          var country = userInfo.country;
+          var signature = res.signature;
+          var encryptData = res.encryptData;
+          console.log('用户信息',res);
+        },
+        fail: function(res) {
+
+        },
+        complete: function(res) {
+
+        }
+      });
+    },
+    onchooseAddres(e) {
+        wx.chooseAddress({
+            success(res) {
+                console.log(res);
             }
         })
     },
@@ -27,16 +46,14 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        wx.setNavigationBarTitle({
-            title: this.data.titleBar
-        })
+      console.log('ready');
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+      console.log('show')
     },
 
     /**

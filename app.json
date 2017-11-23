@@ -1,39 +1,37 @@
 {
-    "pages": [
-        "pages/posts/posts",
-        "pages/movices/movices",
-        "pages/post-detail/post-detail",
-        "pages/movice-detail/movice-detail",
-        "pages/more-movice/more-movice",
-        "pages/weclome/weclome"
-    ],
-    "window":
-    {
-        "backgroundTextStyle": "light",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black",
-        "navigationBarBackgroundColor": "#405f80"
-    },
-    "tabBar":
-    {
-        "borderStyle": "white",
-        "position": "bottom",
-        "selectedColor": "#1F4BA5",
-        "color": "#707070",
-        "list": [
-
-            {
-                "pagePath": "pages/posts/posts",
-                "text": "文章",
-                "iconPath": "images/tab/yuedu.png",
-                "selectedIconPath": "images/tab/yuedu_hl.png"
-            },
-            {
-                "pagePath": "pages/movices/movices",
-                "text": "电影",
-                "iconPath": "images/tab/dianying.png",
-                "selectedIconPath": "images/tab/dianying_hl.png"
-            }
-        ]
-    }
+  "pages": [
+    "pages/weclome/weclome",
+    "pages/user/user",
+    "pages/posts/posts",
+    "pages/movices/movices",
+    "pages/post-detail/post-detail",
+    "pages/movice-detail/movice-detail",
+    "pages/more-movice/more-movice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#405f80"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "position": "bottom",
+    "selectedColor": "#1F4BA5",
+    "color": "#707070",
+    "list": [
+      {
+        "pagePath": "pages/posts/posts",
+        "text": "文章",
+        "iconPath": "images/tab/yuedu.png",
+        "selectedIconPath": "images/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/movices/movices",
+        "text": "电影",
+        "iconPath": "images/tab/dianying.png",
+        "selectedIconPath": "images/tab/dianying_hl.png"
+      }
+    ]
+  }
 }
